@@ -2,7 +2,7 @@
 pragma solidity ^0.8.24;
 
 import {Test} from "forge-std/Test.sol";
-import {LangclawRegistry} from "../../backend/contracts/LangclawRegistry.sol";
+import {LangclawRegistry} from "../src/LangclawRegistry.sol";
 
 contract LangclawRegistryTest is Test {
     LangclawRegistry internal registry;
@@ -72,6 +72,18 @@ contract LangclawRegistryTest is Test {
         );
     }
 
+    function test_RevertEmptyRunId() public {
+        vm.expectRevert(LangclawRegistry.EmptyRunId.selector);
+
+        registry.recordAgentDecision(
+            8004,
+            "",
+            keccak256("mantle-alpha-run"),
+            "langclaw://evidence/run-1",
+            "smart-money"
+        );
+    }
+
     function test_RevertEmptyEvidenceUri() public {
         vm.expectRevert(LangclawRegistry.EmptyEvidenceUri.selector);
 
@@ -81,6 +93,18 @@ contract LangclawRegistryTest is Test {
             keccak256("mantle-alpha-run"),
             "",
             "smart-money"
+        );
+    }
+
+    function test_RevertEmptySignalType() public {
+        vm.expectRevert(LangclawRegistry.EmptySignalType.selector);
+
+        registry.recordAgentDecision(
+            8004,
+            "run-1",
+            keccak256("mantle-alpha-run"),
+            "langclaw://evidence/run-1",
+            ""
         );
     }
 
