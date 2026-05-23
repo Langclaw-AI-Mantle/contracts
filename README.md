@@ -96,7 +96,7 @@ Each record stores:
 - recorder wallet
 - block timestamp
 
-This is the contract to highlight for AI Trading & Strategy scoring without live-funds risk.
+This is the contract to highlight as a score booster for the primary AI Alpha & Data submission without live-funds risk.
 
 ## LangclawUsageVault
 
