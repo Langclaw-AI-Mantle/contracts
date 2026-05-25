@@ -10,7 +10,7 @@ The hackathon-critical contracts are `LangclawRegistry` and `LangclawTradingJour
 | --- | --- | --- |
 | `LangclawRegistry` | Agent decision proof and benchmarking trail | `0xe69755e4249c4978c39fbe847ca9674ce7af3505` |
 | `LangclawUsageVault` | Optional MNT billing vault | `0x7e93Ef361e7b54297cF963977bA829E47E59e8E1` |
-| `LangclawTradingJournal` | Strategy backtest and paper-trade proof trail | Deploy for Strategy Lab demos |
+| `LangclawTradingJournal` | Strategy backtest and paper-trade proof trail | `0xe96e9b76af8c8f32bfa2235d647186826d92fb7d` |
 
 ERC-8004 identity:
 
@@ -160,4 +160,6 @@ forge script script/DeployLangclawTradingJournal.s.sol:DeployLangclawTradingJour
   --broadcast
 ```
 
-After deployment, copy the deployed address to `LANGCLAW_TRADING_JOURNAL_ADDRESS` in `backend/.env` and set `MANTLE_TRADING_JOURNAL_ENABLED=true`.
+After deployment, copy the deployed address to `MANTLE_LANGCLAW_TRADING_JOURNAL_ADDRESS` (or legacy `LANGCLAW_TRADING_JOURNAL_ADDRESS`) in `backend/.env` and set `MANTLE_TRADING_JOURNAL_ENABLED=true`.
+
+The Mantle journal at `0xe96e9b76af8c8f32bfa2235d647186826d92fb7d` is already deployed for hackathon demos when using the documented production env.
